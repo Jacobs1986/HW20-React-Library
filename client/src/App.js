@@ -1,11 +1,14 @@
 import React from "react";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Navbar from "./components/Navbar"
 
 function App() {
     return (
-        <>
-            <h1>This is a test 2.</h1>
-        </>
+        <Router>
+            <div>
+                <Navbar />
+            </div>
+        </Router>
     )
 }
 

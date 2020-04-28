@@ -6,3 +6,5 @@ function Navbar() {
         <Link to="/">Book List</Link> | <Link to="/search">Search for Books</Link>
     </>
 }
+
+export default Navbar
