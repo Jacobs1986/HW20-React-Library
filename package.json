@@ -29,8 +29,11 @@
   "homepage": "https://github.com/Jacobs1986/HW20-React-Library#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.9.11"
+    "mongoose": "^5.9.11",
+    "react-bootstrap": "^1.0.1",
+    "react-router-dom": "^5.1.2"
   }
 }
