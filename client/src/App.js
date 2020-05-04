@@ -1,5 +1,5 @@
 import React from 'react';
-import BookList from "./components/booklist"
+import BookList from "./pages/booklist"
 
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.css'
