@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
 import Container from "react-bootstrap/Container"
+import SearchLayout from "../components/SearchLayout";
+import Row from "react-bootstrap/Row"
 
 class Search extends Component {
     state = {
@@ -15,7 +17,10 @@ class Search extends Component {
     searchBook = () => {
         API.searchBook()
         .then(res => {
-            console.log(res.data);
+            console.log(res.data.items);
+            this.setState({
+                results: res.data.items
+            })
         })
     }
 
@@ -35,7 +40,19 @@ class Search extends Component {
                     value={this.state.searchTitle}
                     onChange={this.handleChange}
                 />
-                <button onClick={this.handleButtonClick}>Search</button>
+                <button onClick={this.searchBook}>Search</button>
+                {this.state.results.map((data, index) =>
+                    <SearchLayout 
+                        key={index}
+                        id={index}
+                        image={data.volumeInfo.imageLinks.thumbnail}
+                        title={data.volumeInfo.title}
+                        author={data.volumeInfo.authors[0]}
+                        summary={data.volumeInfo.description}
+                        previewLink={data.volumeInfo.previewLink}
+                    />
+
+                )}
             </Container>
         )
     }
