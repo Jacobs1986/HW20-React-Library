@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
+import Container from "react-bootstrap/Container"
 
 class Search extends Component {
     state = {
@@ -26,7 +27,7 @@ class Search extends Component {
 
     render() {
         return (
-            <div>
+            <Container>
                 <h1>You are in the search page.</h1>
                 <input 
                     type="text"
@@ -35,7 +36,7 @@ class Search extends Component {
                     onChange={this.handleChange}
                 />
                 <button onClick={this.handleButtonClick}>Search</button>
-            </div>
+            </Container>
         )
     }
 }
