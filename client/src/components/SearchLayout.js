@@ -16,7 +16,7 @@ function SearchLayout(props) {
                 <a href={props.previewLink}>Click here to see more!</a>
             </Col>
             <Col md={2}>
-                <button>Save Book</button>
+                <button onClick={props.save}>Save Book</button>
             </Col>
         </Row>
     )
