@@ -16,10 +16,8 @@ class Search extends Component {
 
     searchBook = () => {
         let urlTitle = this.state.searchTitle.replace(' ', '+');
-        console.log(urlTitle)
         API.searchBook(urlTitle)
         .then(res => {
-            console.log(res.data.items);
             this.setState({
                 results: res.data.items
             })
@@ -29,6 +27,19 @@ class Search extends Component {
     handleButtonClick = event => {
         event.preventDefault()
         console.log(this.state.searchTitle)
+    }
+
+    saveBook = (event) => {
+        console.log("You clicked the save button")
+        let bookIndex = this.state.results[event.target.id].volumeInfo
+        let saveBookInfo = {
+            title: bookIndex.title,
+            author: bookIndex.authors[0],
+            synopsis: bookIndex.description,
+            image: bookIndex.imageLinks.thumbnail,
+            link: bookIndex.previewLink
+        }
+        console.log(saveBookInfo);
     }
 
     render() {
@@ -51,6 +62,8 @@ class Search extends Component {
                         author={data.volumeInfo.authors[0]}
                         summary={data.volumeInfo.description}
                         previewLink={data.volumeInfo.previewLink}
+                        save={this.saveBook}
+                        buttonId = {index}
                     />
 
                 )}
