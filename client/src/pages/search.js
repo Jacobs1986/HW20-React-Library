@@ -15,7 +15,9 @@ class Search extends Component {
     };
 
     searchBook = () => {
-        API.searchBook()
+        let urlTitle = this.state.searchTitle.replace(' ', '+');
+        console.log(urlTitle)
+        API.searchBook(urlTitle)
         .then(res => {
             console.log(res.data.items);
             this.setState({
@@ -26,8 +28,7 @@ class Search extends Component {
 
     handleButtonClick = event => {
         event.preventDefault()
-        console.log("you clicked the button")
-        this.searchBook()
+        console.log(this.state.searchTitle)
     }
 
     render() {
