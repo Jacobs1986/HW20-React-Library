@@ -34,12 +34,12 @@ class Search extends Component {
         let bookIndex = this.state.results[event.target.id].volumeInfo
         let saveBookInfo = {
             title: bookIndex.title,
-            author: bookIndex.authors[0],
+            authors: bookIndex.authors[0],
             synopsis: bookIndex.description,
             image: bookIndex.imageLinks.thumbnail,
             link: bookIndex.previewLink
         }
-        console.log(saveBookInfo);
+        API.saveBook(saveBookInfo)
     }
 
     render() {
@@ -53,7 +53,7 @@ class Search extends Component {
                     onChange={this.handleChange}
                 />
                 <button onClick={this.searchBook}>Search</button>
-                {this.state.results.map((data, index) =>
+                {this.state.results.map((data, index) => 
                     <SearchLayout 
                         key={index}
                         id={index}
@@ -65,7 +65,6 @@ class Search extends Component {
                         save={this.saveBook}
                         buttonId = {index}
                     />
-
                 )}
             </Container>
         )
