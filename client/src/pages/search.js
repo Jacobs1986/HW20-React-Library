@@ -22,6 +22,13 @@ class Search extends Component {
                 results: res.data.items
             })
         })
+        this.state.results.forEach(element => {
+            if (element.volumeInfo.imageLinks) {
+                console.log("There are links avaliable")
+            } else {
+                console.log("image links are not avaliable")
+            }
+        })
     }
 
     handleButtonClick = event => {
@@ -53,7 +60,7 @@ class Search extends Component {
                     onChange={this.handleChange}
                 />
                 <button onClick={this.searchBook}>Search</button>
-                {this.state.results.map((data, index) => 
+                {/* {this.state.results.map((data, index) => 
                     <SearchLayout 
                         key={index}
                         id={index}
@@ -65,7 +72,7 @@ class Search extends Component {
                         save={this.saveBook}
                         buttonId = {index}
                     />
-                )}
+                )} */}
             </Container>
         )
     }
