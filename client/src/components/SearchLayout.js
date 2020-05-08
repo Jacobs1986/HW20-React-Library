@@ -10,7 +10,7 @@ function SearchLayout(props) {
                 <Image src={props.image} fluid/>
             </Col>
             <Col md={7}>
-                <h4 id="title">Title: {props.title}</h4>
+                <h4>Title: {props.title}</h4>
                 <h4>Author: {props.author}</h4>
                 <h6>Summary: {props.summary}</h6>
                 <a href={props.previewLink}>Click here to see more!</a>

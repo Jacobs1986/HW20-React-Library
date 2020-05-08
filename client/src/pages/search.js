@@ -23,10 +23,8 @@ class Search extends Component {
             })
         })
         this.state.results.forEach(element => {
-            if (element.volumeInfo.imageLinks) {
-                console.log("There are links avaliable")
-            } else {
-                console.log("image links are not avaliable")
+            if (!element.volumeInfo.imageLinks) {
+                console.log("There are no links avaliable")
             }
         })
     }
@@ -60,8 +58,20 @@ class Search extends Component {
                     onChange={this.handleChange}
                 />
                 <button onClick={this.searchBook}>Search</button>
-                {/* {this.state.results.map((data, index) => 
+                {this.state.results.map((data, index) => {
+                    return !data.volumeInfo.imageLinks ?
                     <SearchLayout 
+                        key={index}
+                        id={index}
+                        // image={data.volumeInfo.imageLinks.thumbnail}
+                        title={data.volumeInfo.title}
+                        author={data.volumeInfo.authors[0]}
+                        summary={data.volumeInfo.description}
+                        previewLink={data.volumeInfo.previewLink}
+                        save={this.saveBook}
+                        buttonId = {index}
+                    />
+                    : <SearchLayout 
                         key={index}
                         id={index}
                         image={data.volumeInfo.imageLinks.thumbnail}
@@ -72,7 +82,18 @@ class Search extends Component {
                         save={this.saveBook}
                         buttonId = {index}
                     />
-                )} */}
+                })}
+                    {/* // <SearchLayout 
+                    //     key={index}
+                    //     id={index}
+                    //     image={data.volumeInfo.imageLinks.thumbnail}
+                    //     title={data.volumeInfo.title}
+                    //     author={data.volumeInfo.authors[0]}
+                    //     summary={data.volumeInfo.description}
+                    //     previewLink={data.volumeInfo.previewLink}
+                    //     save={this.saveBook}
+                    //     buttonId = {index}
+                    // /> */}
             </Container>
         )
     }
