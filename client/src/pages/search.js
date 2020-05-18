@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import API from "../utils/API";
 import Container from "react-bootstrap/Container"
 import SearchLayout from "../components/SearchLayout";
-import Row from "react-bootstrap/Row"
 
 class Search extends Component {
     state = {
