@@ -64,7 +64,7 @@ class Search extends Component {
                         id={index}
                         // image={data.volumeInfo.imageLinks.thumbnail}
                         title={data.volumeInfo.title}
-                        author={data.volumeInfo.authors[0]}
+                        author={data.volumeInfo.authors}
                         summary={data.volumeInfo.description}
                         previewLink={data.volumeInfo.previewLink}
                         save={this.saveBook}
@@ -75,7 +75,7 @@ class Search extends Component {
                         id={index}
                         image={data.volumeInfo.imageLinks.thumbnail}
                         title={data.volumeInfo.title}
-                        author={data.volumeInfo.authors[0]}
+                        author={data.volumeInfo.authors}
                         summary={data.volumeInfo.description}
                         previewLink={data.volumeInfo.previewLink}
                         save={this.saveBook}

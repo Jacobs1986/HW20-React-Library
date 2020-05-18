@@ -25,7 +25,10 @@ class BookList extends Component {
 
     deleteBook = (event) => {
         event.preventDefault()
-        console.log("This book will be deleted");
+        let bookID = this.state.books[event.target.id]._id;
+        console.log("The books id is", bookID);
+        API.deleteBook(bookID);
+        this.loadBooks();
     }
 
     render() {
