@@ -16,7 +16,7 @@ function Layout(props) {
                 <a href={props.previewLink}>Click here to see more!</a>
             </Col>
             <Col md={2}>
-                <button onClick={props.save} id={props.buttonId}>Save Book</button>
+                <button onClick={props.delete} id={props.buttonId}>Delete Book</button>
             </Col>
         </Row>
     )
