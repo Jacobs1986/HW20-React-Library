@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
+import Layout from "../components/Layout";
 
 // styling
 import Container from 'react-bootstrap/Container';
@@ -34,17 +35,15 @@ class BookList extends Component {
                 </Row>
                 {this.state.books.map(books => {
                     return (
-                        <Row key={books._id}>
-                            <Col md={3}>
-                                <img src={books.image} alt="book cover" />
-                            </Col>
-                            <Col md={9}>
-                                <h4>{books.title}</h4>
-                                <h4>{books.authors}</h4>
-                                <h4>{books.synopsis}</h4>
-                                <a href={books.link}>Click here for more info</a>
-                            </Col>
-                        </Row>
+                        <Layout 
+                            key={books._id}
+                            id={books._id}
+                            image={books.image}
+                            title={books.title}
+                            author={books.authors[0]}
+                            summary={books.synopsis}
+                            previewLink={books.link}
+                        />
                     )
                 })}
             </Container>
