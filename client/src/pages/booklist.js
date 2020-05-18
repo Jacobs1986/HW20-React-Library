@@ -24,6 +24,11 @@ class BookList extends Component {
             });
     }
 
+    deleteBook = (event) => {
+        event.preventDefault()
+        console.log("This book will be deleted");
+    }
+
     render() {
         return (
             <Container>
@@ -33,7 +38,7 @@ class BookList extends Component {
                 <Row>
                     <p>Below you can view the books that you've added to your book list.</p>
                 </Row>
-                {this.state.books.map(books => {
+                {this.state.books.map((books, index) => {
                     return (
                         <Layout 
                             key={books._id}
@@ -43,6 +48,8 @@ class BookList extends Component {
                             author={books.authors[0]}
                             summary={books.synopsis}
                             previewLink={books.link}
+                            delete={this.deleteBook}
+                            buttonId = {index}
                         />
                     )
                 })}
