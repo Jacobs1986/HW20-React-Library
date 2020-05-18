@@ -13,5 +13,8 @@ export default {
     },
     saveBook: function(bookData) {
         return axios.post("/api/books/create", bookData);
+    },
+    deleteBook: function(bookId) {
+        return axios.delete("/api/books/:id", bookId)
     }
 }

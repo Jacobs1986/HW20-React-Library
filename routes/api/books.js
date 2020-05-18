@@ -8,4 +8,7 @@ router.route("/")
 router.route("/create")
     .post(booksController.create);
 
+router.route("/id")
+    .delete(booksController.remove);
+
 module.exports = router;
